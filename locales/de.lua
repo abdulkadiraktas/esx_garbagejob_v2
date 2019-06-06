@@ -27,6 +27,9 @@ Locales['de'] = {
 	['blip_goal']				= 'NBLBNK Logistics: Abhlpunkt', 						--'Garbage company : Delivery point',
 	['blip_depot']				= 'NBLBNK Logistics: Firmensitz', 						--'Garbage company : depot',
 	['cancel_mission']			= 'Benutze  ~INPUT_PICKUP~ um Deine Arbeit abzubrechen.',
+	['end_mission']				= 'Benutze ~INPUT_PICKUP~ dich truck zurückzugeben',
+	['end_mission_lost_truck']	= 'Benutze ~INPUT_PICKUP~ aufhören zu arbeiten.',
+
 }
 
 ---translated by NebelRebell

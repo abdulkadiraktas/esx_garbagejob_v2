@@ -27,4 +27,7 @@ Locales['cs'] = {
 	['blip_goal']				= 'biffa Logistics : Místo dodání', --'Garbage company : Delivery point',
 	['blip_depot']				= 'biffa Logistics : depo', --'Garbage company : depot',
 	['cancel_mission']			= 'stiskni ~INPUT_PICKUP~ pro zrušení mise',
+	['end_mission']				= 'stiskni ~ INPUT_PICKUP ~ pro návrat kamion.',
+	['end_mission_lost_truck']	= 'stiskni ~ INPUT_PICKUP ~ pro ukončení služby.',
+
 }

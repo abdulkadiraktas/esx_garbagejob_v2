@@ -43,7 +43,6 @@ Citizen.CreateThread(function()
 	end
 end)
 
-
 --------------------------------------------------------------------
 -- NE RIEN MODIFIER
 --------------------------------------------------------------------------------
@@ -287,13 +286,15 @@ AddEventHandler('esx_garbagejob:hasEnteredMarker', function(zone)
 				VerifPlaqueVehiculeActuel()
 
 				if plaquevehicule == plaquevehiculeactuel then
-                    CurrentAction     = 'retourcamion'
+					CurrentAction     = 'retourcamion'
+					CurrentActionMsg  = _U('end_mission')
 				else
                     CurrentAction     = 'retourcamionannulermission'
                     CurrentActionMsg  = _U('not_your_truck')
 				end
 			else
-                CurrentAction     = 'retourcamionperdu'
+				CurrentAction     	= 'retourcamionperdu'
+				CurrentActionMsg 	= _U('end_mission_lost_truck')
 			end
 		end
 	end
@@ -308,8 +309,8 @@ end)
 
 function nouvelledestination()
 	livraisonnombre = livraisonnombre+1
-	livraisonTotalPaye = livraisonTotalPaye+destination.Paye+totalbagpay
-
+	livraisonTotalPaye = livraisonTotalPaye + destination.Paye + totalbagpay
+	totalbagpay = 0
 	if livraisonnombre >= Config.MaxDelivery then
 		MissionLivraisonStopRetourDepot()
 	else
@@ -346,7 +347,7 @@ function retourcamion_oui()
 	livraisonnombre = 0
 	MissionRegion = 0
 	
-	donnerlapaye()
+	donnerlapaye()   
 end
 
 function retourcamion_non()
@@ -452,6 +453,7 @@ function donnerlapaye()
 			ESX.ShowNotification(_U('repair_minus')..argentretire)
 			TriggerServerEvent("esx_garbagejob:pay", amount)
 			livraisonTotalPaye = 0
+
 		else
 			if argentretire <= 0 then
 				ESX.ShowNotification(_U('shipments_plus')..livraisonTotalPaye)
@@ -462,22 +464,26 @@ function donnerlapaye()
 				ESX.ShowNotification(_U('repair_minus')..argentretire)
 					TriggerServerEvent("esx_garbagejob:pay", amount)
 				livraisonTotalPaye = 0
+
 			end
 		end
 	else
 		if livraisonTotalPaye ~= 0 and amount <= 0 then
 			ESX.ShowNotification(_U('truck_state'))
 			livraisonTotalPaye = 0
+
 		else
 			if argentretire <= 0 then
 				ESX.ShowNotification(_U('shipments_plus')..livraisonTotalPaye)
 					TriggerServerEvent("esx_garbagejob:pay", amount)
 				livraisonTotalPaye = 0
+
 			else
 				ESX.ShowNotification(_U('shipments_plus')..livraisonTotalPaye)
 				ESX.ShowNotification(_U('repair_minus')..argentretire)
 				TriggerServerEvent("esx_garbagejob:pay", amount)
 				livraisonTotalPaye = 0
+
 			end
 		end
 	end
@@ -495,15 +501,18 @@ function donnerlapayesanscamion()
 		ESX.ShowNotification(_U('truck_price')..argentretire)
 					TriggerServerEvent("esx_garbagejob:pay", amount)
 		livraisonTotalPaye = 0
+
 	else
 		if amount >= 1 then
 			ESX.ShowNotification(_U('shipments_plus')..livraisonTotalPaye)
 			ESX.ShowNotification(_U('truck_price')..argentretire)
-					TriggerServerEvent("esx_garbagejob:pay", amount)
+			TriggerServerEvent("esx_garbagejob:pay", amount)
 			livraisonTotalPaye = 0
+
 		else
 			ESX.ShowNotification(_U('truck_state'))
 			livraisonTotalPaye = 0
+
 		end
 	end
 end
@@ -548,8 +557,8 @@ Citizen.CreateThread(function()
 								AttachEntityToEntity(garbagebag, GetPlayerPed(-1), GetPedBoneIndex(GetPlayerPed(-1), 57005), .65, 0, -.1, 0, 270.0, 60.0, true, true, false, true, 1, true) -- object is attached to right hand    
 							elseif randombag == 2 then
 								garbagebag = CreateObject(GetHashKey("hei_prop_heist_binbag"), 0, 0, 0, true, true, true) -- creates object
-								AttachEntityToEntity(garbagebag, GetPlayerPed(-1), GetPedBoneIndex(GetPlayerPed(-1), 57005), 0.12, 0.0, -0.05, 0, 270.0, 60.0, true, true, false, true, 1, true) -- object is attached to right hand    
-	    					end   
+								AttachEntityToEntity(garbagebag, GetPlayerPed(-1), GetPedBoneIndex(GetPlayerPed(-1), 57005), 0.12, 0.0, 0.00, 25.0, 270.0, 180.0, true, true, false, true, 1, true) -- object is attached to right hand    
+							end   
 							TaskPlayAnim(PlayerPedId(-1), 'anim@heists@narcotics@trash', 'walk', 1.0, -1.0,-1,49,0,0, 0,0)
 							currentbag  = currentbag - 1
 							trashcollection = false
@@ -597,7 +606,7 @@ Citizen.CreateThread(function()
 						truckdeposit = false
 						trashcollection = true
 					end
-				end
+				end  
 
 				if CurrentAction == 'delivery' then
 					work_truck = GetVehiclePedIsIn(GetPlayerPed(-1), false)

@@ -23,10 +23,13 @@ Locales['en'] = {
 	['meet_del']				= 'go to the next pickup Location',
 	['return_depot']			= 'return to the depot.',
 	['blip_job']				= 'biffa Logistics', --'Garbage company',
-	['blip_delivery']			= 'biffa Logistics : Delivery', --'Garbage company : Delivery',
-	['blip_goal']				= 'biffa Logistics : Delivery point', --'Garbage company : Delivery point',
-	['blip_depot']				= 'biffa Logistics : depot', --'Garbage company : depot',
+	['blip_delivery']			= 'biffa Logistics : Pickup', --'Garbage company : Delivery',
+	['blip_goal']				= 'biffa Logistics : Depot', --'Garbage company : Delivery point',
+	['blip_depot']				= 'biffa Logistics : Depot', --'Garbage company : depot',
 	['cancel_mission']			= 'press ~INPUT_PICKUP~ to cancel the mission',
+	['end_mission']				= 'press ~INPUT_PICKUP~ to return Truck.',
+	['end_mission_lost_truck']	= 'press ~INPUT_PICKUP~ to end service.',
+
 }
 
 

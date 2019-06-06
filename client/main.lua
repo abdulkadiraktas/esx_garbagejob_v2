@@ -36,12 +36,7 @@ local garbagebag
 local garbagebagdelete
 local CollectionAction = nil
 local taillight_r =  {}
-Citizen.CreateThread(function()
-	while ESX == nil do
-		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-		Citizen.Wait(0)
-	end
-end)
+
 
 --------------------------------------------------------------------
 -- NE RIEN MODIFIER
@@ -63,7 +58,7 @@ local MissionLivraison = false
 local isInService = false
 local truckdeposit = false
 local trashcollection = false
-local PlayerData              = nil
+local PlayerData 			  = nil
 local GUI                     = {}
 GUI.Time                      = 0
 local hasAlreadyEnteredMarker = false
@@ -76,6 +71,18 @@ local CurrentAction           = nil
 local CurrentActionMsg        = ''
 local CurrentActionData       = {}
 --------------------------------------------------------------------------------
+Citizen.CreateThread(function()
+	while ESX == nil do
+		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+		Citizen.Wait(0)
+	end
+
+	while ESX.GetPlayerData().job == nil do
+		Citizen.Wait(100)
+	end
+
+	PlayerData = ESX.GetPlayerData()
+end)
 
 RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(xPlayer)

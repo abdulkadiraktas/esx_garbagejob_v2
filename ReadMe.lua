@@ -1,3 +1,17 @@
+-- Version History --
+
+Latest Fixes:
+* fixed bagpay not resetting after collection to add right amount to destination pay.
+* added ActionMsg for Truck returns
+* adjusted small garbage bad attachment to make it look more natural when walking with the bag.
+
+
+Recent Fixes:
+* Added - cs locale file - from pull request
+* Added - ge locale file - from pull request
+
+
+
 Consider this a Add-On Release since I have only modified the original code to add RP potential.  90% of this script is still
 the original author's script with 10% my addition to make players get out and collect bags for RP potential.
 

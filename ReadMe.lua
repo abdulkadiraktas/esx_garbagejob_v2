@@ -25,3 +25,17 @@ ESX_Jobs
   Import garbagejob_v2.sql if you do not already have the garbagejob on your server for work clothes settings.
   add esx_garbagejob_v2 to your resource folder
   start esx_garbagejob_v2 in your server.fg
+      
+      
+-- Pull Reuqests --
+      
+      I have kept these pull requests in this version of the script and will be goign thu the remaining pull requests for testing before
+      they go live.
+      
+      Added de locale.
+      Added cs locale.
+      
+      Adjusted Vehicle spawn menu to bottom right corner
+      Added Keys code to script for easy adjusting input keys.
+      
+      

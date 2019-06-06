@@ -4,6 +4,7 @@ Latest Fixes:
 * fixed bagpay not resetting after collection to add right amount to destination pay.
 * added ActionMsg for Truck returns
 * adjusted small garbage bag attachment to make it look more natural when walking with the bag.
+* added function to allow script restarts and having markers showing up.
 
 
 Recent Fixes:

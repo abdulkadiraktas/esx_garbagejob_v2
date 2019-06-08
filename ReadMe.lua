@@ -1,13 +1,14 @@
 -- Version History --
 
-Latest Fixes:
+Latest Fixes:  6/8/2019
+* Fixed issue with Female characters being switched to Male when changing back to Civ clothing.
+
+
+Recent Fixes:
 * fixed bagpay not resetting after collection to add right amount to destination pay.
 * added ActionMsg for Truck returns
 * adjusted small garbage bag attachment to make it look more natural when walking with the bag.
 * added function to allow script restarts and having markers showing up.
-
-
-Recent Fixes:
 * Added - cs locale file - from pull request
 * Added - ge locale file - from pull request
 
